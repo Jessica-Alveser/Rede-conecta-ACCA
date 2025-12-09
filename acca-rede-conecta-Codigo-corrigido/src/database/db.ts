@@ -1,22 +1,11 @@
-import * as dotenv from 'dotenv';
-import { Pool } from 'pg';
+// db.js
+import { Pool } from "pg";
+import dotenv from "dotenv";
 
 dotenv.config();
 
+// Criando a conexão com o banco
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_DATABASE,
-  password: process.env.DB_PASSWORD,
-  port: Number(process.env.DB_PORT),
-});
-
-pool.on('connect', () => {
-  console.log('Pool de Conexões PostgreSQL criado.');
-});
-
-pool.on('error', (err: Error) => {
-  console.error('Erro inesperado no pool de conexões:', err);
-});
-
-export default pool;
+  connectionString: process.env.DATABASE_URL, // pega do .env
+  ssl: {
+    rejectUnaut
