@@ -8,12 +8,18 @@ class FeedbackController {
         const nova = await feedbackService.criar(id_usuario, req.body);
         res.json(nova);
     } catch (err: any){
-        res.status(400).json({ erro: err.menssage });
+        res.status(400).json({ erro: err.message });
         }
     }
+    
     async listar(req: Request, res: Response) {
+    try {
         const lista = await feedbackService.listar();
         res.json(lista);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Erro ao listar feedbacks" });
+    }
     }
   }
 

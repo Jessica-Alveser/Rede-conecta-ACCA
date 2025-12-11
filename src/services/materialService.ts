@@ -9,7 +9,9 @@ class MaterialService {
             data.link,
             data.descricao
         );
-    }async listar() {
+    }
+    
+    async listar() {
         return materialRepository.findAll();
     }
 }
