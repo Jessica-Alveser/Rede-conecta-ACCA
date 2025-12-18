@@ -1,6 +1,6 @@
 export interface RedeApoio {
   id_apoio: number;
-  sessao_id: string;
+  id_usuario: string;
   nome: string;
   tipo_apoio: string | null;
   endereco: string | null;
@@ -11,7 +11,7 @@ export interface RedeApoio {
 }
 // Interface auxiliar para o método de criação (exclui o ID e a data)
 export interface RedeApoioCreate {
-    sessao_id: string;
+    id_usuario: string;
     nome: string;
     tipo_apoio: string | null;
     endereco: string | null;
