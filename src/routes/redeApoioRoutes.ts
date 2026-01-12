@@ -7,3 +7,5 @@ routes.post("/criar", criarConta);
 routes.get("/", listar);
 
 export default routes;
+
+
